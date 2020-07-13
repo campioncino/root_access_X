@@ -27,7 +27,6 @@ public class RootaccessPlugin implements FlutterPlugin, MethodCallHandler {
     channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "rootaccess");
     channel.setMethodCallHandler(this);
   }
-
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
   // pre-Flutter-1.12 Android projects. You are encouraged to continue supporting
   // plugin registration via this function while apps migrate to use the new Android APIs
@@ -57,13 +56,6 @@ public class RootaccessPlugin implements FlutterPlugin, MethodCallHandler {
   private boolean isAccessGiven() {
     return RootTools.isAccessGiven();
   }
-
-  @Override
-  public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-    channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "root_access");
-    channel.setMethodCallHandler(this);
-  }
-
 
   @Override
   public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
